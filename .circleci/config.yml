@@ -6,12 +6,14 @@ orbs:
   
 jobs:
   unit-test:
-    executor:
-      name: node/default
-      tag: '16'
+    docker:
+      - image: cimg/base:stable
     
     steps:
       - checkout
+      
+      - node/install-yarn:
+      
       - node/install-packages:
           pkg-manager: yarn
 
