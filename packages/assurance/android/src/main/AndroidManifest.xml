@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.adobe.marketing.mobile.reactnative.assurance">
     <application>
-        <activity android:name="com.adobe.marketing.mobile.AssuranceFullScreenTakeoverActivity"/>
+        <activity android:name="com.adobe.marketing.mobile.assurance.AssuranceFullScreenTakeoverActivity"/>
     </application>
 </manifest>
   
