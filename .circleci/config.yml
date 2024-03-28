@@ -49,7 +49,7 @@ jobs:
 
   build-sample-app-ios:
     macos:
-      xcode: 15.1 # Specify the Xcode version to use
+      xcode: 15.2 # Specify the Xcode version to use
 
     steps:
       - checkout
