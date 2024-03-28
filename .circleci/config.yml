@@ -2,7 +2,7 @@
 version: 2.1
 
 orbs:
-  macos: circleci/macos@2
+  macos: circleci/macos@2.4.1
   
 jobs:
   unit-test:
