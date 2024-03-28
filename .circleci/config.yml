@@ -67,9 +67,9 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Install latest NodeJS
-          command: brew install node
+      # - run:
+      #     name: Install latest NodeJS
+      #     command: brew install node
 
       - restore_cache:
           keys:
@@ -91,17 +91,17 @@ jobs:
           name: Install pods
           command: yarn sampleapp:ios:pod:install
 
-      - run:
-          name: Yoga fix
-          command: |
-            cd apps/AEPSampleApp
-            sed -i.bo 's/    node->getLayout()\.hadOverflow() |$/\0|/' ./node_modules/react-native/ReactCommon/yoga/yoga/Yoga.cpp
-            cd ../../
-            rm -rf ~/Library/Developer/Xcode/DerivedData
+      # - run:
+      #     name: Yoga fix
+      #     command: |
+      #       cd apps/AEPSampleApp
+      #       sed -i.bo 's/    node->getLayout()\.hadOverflow() |$/\0|/' ./node_modules/react-native/ReactCommon/yoga/yoga/Yoga.cpp
+      #       cd ../../
+      #       rm -rf ~/Library/Developer/Xcode/DerivedData
 
       - run:
           name: Building iOS Sample App
-          command: cd apps/AEPSampleApp && npx react-native run-ios --verbose
+          command: cd apps/AEPSampleApp && npx react-native run-ios --verbose --terminal terminal
 
 workflows:
   version: 2.1
