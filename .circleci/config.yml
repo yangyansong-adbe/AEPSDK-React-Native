@@ -35,13 +35,14 @@ jobs:
 
     # resource_class: large
 
-    executor: 
-      name: rn/linux_android
-      node_version: '18'
+    executor: rn/linux_android
     
     steps:
       - checkout
 
+      - run:
+          name: install node
+          command: brew install node
       - run:
           name: yarn install
           command: yarn install
