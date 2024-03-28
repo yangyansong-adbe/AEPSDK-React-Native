@@ -6,17 +6,22 @@ orbs:
   
 jobs:
   unit-test:
-    docker:
-      - image: cimg/base:stable
+    executor:
+      name: node/default
+      tag: '18'
     
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: yarn
 
       - restore_cache:
           keys:
             - yarn-cache-{{ checksum "yarn.lock" }}
 
-      - run: yarn install
+      - run:
+          command: yarn install
+          name: Run YARN Install
 
       - save_cache:
           key: yarn-cache-{{ checksum "yarn.lock" }}
