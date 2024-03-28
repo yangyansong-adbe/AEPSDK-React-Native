@@ -3,7 +3,7 @@ version: 2.1
 
 orbs:
   macos: circleci/macos@2.4.1
-  
+
 jobs:
   unit-test:
     docker:
@@ -85,6 +85,9 @@ jobs:
       #       sed -i.bo 's/    node->getLayout()\.hadOverflow() |$/\0|/' ./node_modules/react-native/ReactCommon/yoga/yoga/Yoga.cpp
       #       cd ../../
       #       rm -rf ~/Library/Developer/Xcode/DerivedData
+      - run:
+          name: List schemas
+          command: xcodebuild -workspace ./apps/AEPSampleApp/ios/aepsampleapp.xcworkspace -list
 
       - run:
           name: Building iOS Sample App
