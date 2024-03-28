@@ -62,7 +62,7 @@ jobs:
 
   build-sample-app-ios:
     macos:
-      xcode: 15.1 # Specify the Xcode version to use
+      xcode: 15.3.0 # Specify the Xcode version to use
 
     resource_class: macos.m1.medium.gen1
 
