@@ -71,14 +71,14 @@ public class RCTAEPMessaging: RCTEventEmitter, MessagingDelegate {
         withResolver resolve: @escaping RCTPromiseResolveBlock,
         withRejecter reject: @escaping RCTPromiseRejectBlock
     ) {
-        let surfacePaths = surfaces.map { Surface(path: $0) }
-        Messaging.getPropositionsForSurfaces(surfacePaths) { propositionsDict, error in
-            guard error == nil else {
-                reject("Unable to Retrieve Propositions", nil, nil)
-                return
-            }
-            resolve(RCTAEPMessagingDataBridge.transformPropositionDict(dict: propositionsDict!))
-        }
+//        let surfacePaths = surfaces.map { Surface(path: $0) }
+//        Messaging.getPropositionsForSurfaces(surfacePaths) { propositionsDict, error in
+//            guard error == nil else {
+//                reject("Unable to Retrieve Propositions", nil, nil)
+//                return
+//            }
+//            resolve(RCTAEPMessagingDataBridge.transformPropositionDict(dict: propositionsDict!))
+//        }
     }
 
     @objc
@@ -107,8 +107,8 @@ public class RCTAEPMessaging: RCTEventEmitter, MessagingDelegate {
         withResolver resolve: @escaping RCTPromiseResolveBlock,
         withRejecter reject: @escaping RCTPromiseRejectBlock
     ) {
-        let mapped = surfaces.map { Surface(path: $0) }
-        Messaging.updatePropositionsForSurfaces(mapped)
+//        let mapped = surfaces.map { Surface(path: $0) }
+//        Messaging.updatePropositionsForSurfaces(mapped)
         resolve(nil)
     }
 
