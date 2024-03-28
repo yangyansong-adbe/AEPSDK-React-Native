@@ -6,8 +6,9 @@ orbs:
   
 jobs:
   unit-test:
-    docker:
-      - image: cimg/base:stable
+    executor:
+      name: node/default
+      tag: '16'
     
     steps:
       - checkout
