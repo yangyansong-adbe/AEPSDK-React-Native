@@ -30,10 +30,13 @@ jobs:
           command: yarn test --watchAll=false --runInBand
 
   build-sample-app-android:
-    docker:
-      - image: cimg/android:2024.01.1-node
+    # docker:
+    #   - image: cimg/android:2024.01.1-node
 
     # resource_class: large
+
+    executor: rn/linux_android
+    
     steps:
       - checkout
 
@@ -88,8 +91,8 @@ workflows:
     jobs:
       # - unit-test
       # - build-sample-app-ios
-      # - build-sample-app-android
-      - rn/android_build:
-          build_type: debug
-          name: build_android_debug
-          project_path: ./apps/AEPSampleApp/android
+      - build-sample-app-android
+      # - rn/android_build:
+      #     build_type: debug
+      #     name: build_android_debug
+      #     project_path: ./apps/AEPSampleApp/android
