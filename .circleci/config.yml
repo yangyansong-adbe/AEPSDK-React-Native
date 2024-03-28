@@ -41,6 +41,14 @@ jobs:
       - checkout
 
       - run:
+          name: update npm
+          command: npm install -g npm stable
+
+      - run:
+          name: update node
+          command: npm install -g node
+          
+      - run:
           name: yarn install
           command: yarn install
 
@@ -56,10 +64,6 @@ jobs:
 
     steps:
       - checkout
-
-      # - run:
-      #     name: Install latest NodeJS
-      #     command: brew install node
 
       - restore_cache:
           keys:
@@ -89,10 +93,6 @@ workflows:
   version: 2.1
   ci-workflow:
     jobs:
-      # - unit-test
-      # - build-sample-app-ios
+      - unit-test
+      - build-sample-app-ios
       - build-sample-app-android
-      # - rn/android_build:
-      #     build_type: debug
-      #     name: build_android_debug
-      #     project_path: ./apps/AEPSampleApp/android
