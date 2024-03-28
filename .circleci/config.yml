@@ -30,12 +30,10 @@ jobs:
           command: yarn test --watchAll=false --runInBand
 
   build-sample-app-android:
-    # docker:
-    #   - image: cimg/android:2024.01.1-node
+    docker:
+      - image: cimg/android:2024.01.1-node
 
     # resource_class: large
-    executor: rn/linux_android
-    
     steps:
       - checkout
 
@@ -88,7 +86,10 @@ workflows:
   version: 2.1
   ci-workflow:
     jobs:
-      - unit-test
-      # Uncomment the following lines to build the ios code after this issue is fixed: https://github.com/adobe/aepsdk-react-native/issues/272
-      - build-sample-app-ios
-      - build-sample-app-android
+      # - unit-test
+      # - build-sample-app-ios
+      # - build-sample-app-android
+      - rn/android_build:
+          build_type: debug
+          name: build_android_debug
+          project_path: ./apps/AEPSampleApp/android
