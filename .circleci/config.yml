@@ -32,7 +32,7 @@ jobs:
     docker:
       - image: circleci/android:2023.12.1-node
 
-    resource_class: large
+    # resource_class: large
 
     steps:
       - checkout
