@@ -35,7 +35,9 @@ jobs:
 
     # resource_class: large
 
-    executor: rn/linux_android
+    executor: 
+      name: rn/linux_android
+      node_version: '18'
     
     steps:
       - checkout
