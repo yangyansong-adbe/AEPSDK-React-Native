@@ -3,7 +3,7 @@ version: 2.1
 
 orbs:
   macos: circleci/macos@2.4.1
-  react-native: react-native-community/react-native@7.4.0
+  rn: react-native-community/react-native@7.4.0
 
 jobs:
   unit-test:
