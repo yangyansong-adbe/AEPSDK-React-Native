@@ -47,6 +47,14 @@ jobs:
           command: yarn install
 
       - run:
+          name: npx rn-game-over -a
+          command: npx rn-game-over -a
+      
+      - run:
+          name: npx rn-game-over -j
+          command: npx rn-game-over -j
+          
+      - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
 
