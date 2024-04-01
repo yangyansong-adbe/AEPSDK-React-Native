@@ -38,6 +38,7 @@ jobs:
     executor:
       name: rn/linux_android
       build_image_version: v13.0
+      resource_class: large
 
     steps:
       - checkout
