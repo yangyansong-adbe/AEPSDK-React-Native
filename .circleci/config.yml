@@ -81,6 +81,8 @@ jobs:
   build-android-test:
     docker:
       - image: cimg/android:2024.01.1-node
+    
+    resource_class: large
 
     steps:
       - checkout
