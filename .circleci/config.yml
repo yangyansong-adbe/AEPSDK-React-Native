@@ -78,7 +78,7 @@ jobs:
           name: Building iOS Sample App
           command: cd apps/AEPSampleApp && npx react-native run-ios --verbose --terminal terminal
 
-build-android-test:
+ build-android-test:
     docker:
       - image: cimg/android:2024.01.1-node
 
