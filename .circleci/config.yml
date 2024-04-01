@@ -30,13 +30,9 @@ jobs:
           command: yarn test --watchAll=false --runInBand
 
   build-sample-app-android:
-    # docker:
-    #   - image: cimg/android:2024.01.1-node
-
-    # resource_class: large
-
     executor:
       name: rn/linux_android
+      # find the tools installed in the image here: https://hub.docker.com/r/reactnativecommunity/react-native-android/tags
       build_image_version: v13.0
       resource_class: large
 
@@ -50,11 +46,11 @@ jobs:
       - run:
           name: npx rn-game-over -a
           command: npx rn-game-over -a
-      
+
       - run:
           name: npx rn-game-over -j
           command: npx rn-game-over -j
-          
+
       - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
@@ -94,6 +90,6 @@ workflows:
   version: 2.1
   ci-workflow:
     jobs:
-      # - unit-test
-      # - build-sample-app-ios
+      - unit-test
+      - build-sample-app-ios
       - build-sample-app-android
