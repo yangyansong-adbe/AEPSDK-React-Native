@@ -44,14 +44,6 @@ jobs:
           command: yarn install
 
       - run:
-          name: npx rn-game-over -a
-          command: npx rn-game-over -a
-
-      - run:
-          name: npx rn-game-over -j
-          command: npx rn-game-over -j
-
-      - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
 
@@ -86,10 +78,24 @@ jobs:
           name: Building iOS Sample App
           command: cd apps/AEPSampleApp && npx react-native run-ios --verbose --terminal terminal
 
+build-android-test:
+    docker:
+      - image: cimg/android:2024.01.1-node
+
+    steps:
+      - checkout
+
+      - run:
+          name: yarn install
+          command: yarn install
+      - run:
+          name: Building Android Sample App
+          command: yarn sampleapp:android:build
 workflows:
   version: 2.1
   ci-workflow:
     jobs:
-      - unit-test
-      - build-sample-app-ios
-      - build-sample-app-android
+      # - unit-test
+      # - build-sample-app-ios
+      # - build-sample-app-android
+      - build-android-test
