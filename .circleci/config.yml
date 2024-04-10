@@ -35,6 +35,7 @@ jobs:
       # find the tools installed in the image here: https://hub.docker.com/r/reactnativecommunity/react-native-android/tags
       build_image_version: v13.0
       resource_class: large
+      java_options: "-Xmx4096M -XX:MaxMetaspaceSize=512m"
 
     steps:
       - checkout
@@ -45,9 +46,7 @@ jobs:
 
       - run:
           name: Building Android Sample App
-          command: |
-            export JAVA_OPTS="-Xmx4096M -Xms512m"
-            cd apps/AEPSampleApp && npx react-native build-android
+          command: cd apps/AEPSampleApp && npx react-native build-android
 
   build-sample-app-ios:
     macos:
