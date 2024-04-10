@@ -45,7 +45,9 @@ jobs:
 
       - run:
           name: Building Android Sample App
-          command: cd apps/AEPSampleApp && npx react-native build-android
+          command: |
+            export JAVA_OPTS="-Xmx4096M -Xms512m"
+            cd apps/AEPSampleApp && npx react-native build-android
 
   build-sample-app-ios:
     macos:
