@@ -95,7 +95,7 @@ jobs:
           command: yarn sampleapp:android:build
 
   build-android-test2:
-   macos:
+    macos:
       xcode: 15.2 # Specify the Xcode version to use
 
     steps:
