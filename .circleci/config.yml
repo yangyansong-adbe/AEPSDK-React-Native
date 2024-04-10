@@ -81,7 +81,7 @@ jobs:
   build-android-test:
     docker:
       - image: cimg/android:2024.01.1-node
-    
+
     resource_class: large
 
     steps:
@@ -93,7 +93,21 @@ jobs:
       - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
-          
+
+  build-android-test2:
+   macos:
+      xcode: 15.2 # Specify the Xcode version to use
+
+    steps:
+      - checkout
+
+      - run:
+          name: yarn install
+          command: yarn install
+      - run:
+          name: Building Android Sample App
+          command: yarn sampleapp:android:build
+
 workflows:
   version: 2.1
   ci-workflow:
@@ -101,4 +115,4 @@ workflows:
       # - unit-test
       # - build-sample-app-ios
       # - build-sample-app-android
-      - build-android-test
+      - build-android-test2
