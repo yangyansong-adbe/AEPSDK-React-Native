@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: Building Android Sample App
-          command: cd apps/AEPSampleApp && npx react-native build-android
+          command: yarn sampleapp:android:build
 
   build-sample-app-ios:
     macos:
@@ -107,7 +107,9 @@ jobs:
           command: yarn install
       - run:
           name: Building Android Sample App
-          command: yarn sampleapp:android:build
+          command: |
+            brew install android-sdk
+            yarn sampleapp:android:build
 
 workflows:
   version: 2.1
@@ -115,5 +117,5 @@ workflows:
     jobs:
       # - unit-test
       # - build-sample-app-ios
-      - build-sample-app-android
-      # - build-android-test2
+      # - build-sample-app-android
+      - build-android-test2
