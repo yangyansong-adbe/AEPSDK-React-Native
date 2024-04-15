@@ -35,7 +35,8 @@ jobs:
       # find the tools installed in the image here: https://hub.docker.com/r/reactnativecommunity/react-native-android/tags
       build_image_version: v13.0
       resource_class: large
-      java_options: "-Xmx4096M -XX:MaxMetaspaceSize=512m"
+      # java_options: "-Xmx4096M -XX:MaxMetaspaceSize=512m"
+      gradle_options: "-Xmx4096m"
 
     steps:
       - checkout
@@ -117,5 +118,5 @@ workflows:
     jobs:
       # - unit-test
       # - build-sample-app-ios
-      # - build-sample-app-android
-      - build-android-test2
+      - build-sample-app-android
+      # - build-android-test2
