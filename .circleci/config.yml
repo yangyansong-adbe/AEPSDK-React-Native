@@ -81,43 +81,10 @@ jobs:
           name: Building iOS Sample App
           command: cd apps/AEPSampleApp && npx react-native run-ios --verbose --terminal terminal
 
-  build-android-test:
-    docker:
-      - image: cimg/android:2024.01.1-node
-
-    resource_class: large
-
-    steps:
-      - checkout
-
-      - run:
-          name: yarn install
-          command: yarn install
-      - run:
-          name: Building Android Sample App
-          command: yarn sampleapp:android:build
-
-  build-android-test2:
-    macos:
-      xcode: 15.2 # Specify the Xcode version to use
-
-    steps:
-      - checkout
-
-      - run:
-          name: yarn install
-          command: yarn install
-      - run:
-          name: Building Android Sample App
-          command: |
-            yes | brew cask install android-sdk
-            yarn sampleapp:android:build
-
 workflows:
   version: 2.1
   ci-workflow:
     jobs:
-      # - unit-test
-      # - build-sample-app-ios
+      - unit-test
+      - build-sample-app-ios
       # - build-sample-app-android
-      - build-android-test2
