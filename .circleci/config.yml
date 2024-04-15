@@ -110,7 +110,7 @@ jobs:
       - run:
           name: Building Android Sample App
           command: |
-            brew install android-sdk
+            yes | brew cask install android-sdk
             yarn sampleapp:android:build
 
 workflows:
@@ -119,5 +119,5 @@ workflows:
     jobs:
       # - unit-test
       # - build-sample-app-ios
-      - build-sample-app-android
-      # - build-android-test2
+      # - build-sample-app-android
+      - build-android-test2
