@@ -35,8 +35,6 @@ jobs:
       # find the tools installed in the image here: https://hub.docker.com/r/reactnativecommunity/react-native-android/tags
       build_image_version: v13.0
       resource_class: large
-      # java_options: "-Xmx4096M -XX:MaxMetaspaceSize=512m"
-      gradle_options: "-Xmx4096m -Dorg.gradle.daemon=false"
 
     steps:
       - checkout
@@ -48,6 +46,9 @@ jobs:
       - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
+
+          environment:
+            _JAVA_OPTIONS: "-Xmx4096M -XX:MaxMetaspaceSize=512m"
 
   build-sample-app-ios:
     macos:
