@@ -62,7 +62,7 @@ jobs:
           command: yarn install
       - run:
           name: install Android command line tool
-          command: brew install --cask android-platform-tools
+          command: brew install --cask android-commandlinetools
       - run:
           name: list Android SDK
           command: sdkmanager list
