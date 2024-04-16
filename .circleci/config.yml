@@ -65,7 +65,7 @@ jobs:
           command: sdkmanager --list
       - run: 
           name: accept license
-          command: yes | sdkmanager --licenses
+          command: yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi; 
       - run:
           name: install Android SDK
           command: sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" "emulator" 
