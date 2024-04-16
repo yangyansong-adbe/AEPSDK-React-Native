@@ -72,6 +72,9 @@ jobs:
       - run:
           name: list Android SDK
           command: sdkmanager --list_installed
+      - run: 
+          name: ss
+          command: ls -la ~/Library/Android/sdk
       - run:
           name: yarn install
           command: yarn install
