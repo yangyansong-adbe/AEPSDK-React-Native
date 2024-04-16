@@ -19,29 +19,29 @@ public class RCTAEPMessagingDataBridge: NSObject {
         ]
     }
 
-    static func transformPropositionDict(dict: [Surface: [MessagingProposition]]) -> [String: [Any]]
-    {
-        let bundleID = "mobileapp://" + Bundle.main.bundleIdentifier! + "/"
-        return dict.reduce(into: [:]) { result, element in
-            result[element.key.uri.replacingOccurrences(of: bundleID, with: "")] = element.value
-                .map({ self.transformToProposition(proposition: $0) })
-        }
-    }
-
-    static func transformToProposition(proposition: MessagingProposition) -> [String: Any?] {
-        return [
-            "scope": proposition.scope,
-            "uniqueId": proposition.uniqueId,
-            "items": proposition.items.map({ item in
-                [
-                    "htmlContent": item.htmlContent,
-                    "jsonContentArray": item.jsonContentArray,
-                    "jsonContent": item.jsonContentDictionary,
-                    "itemData": item.itemData as Any?,
-                    "schema": item.schema,
-                    "itemId": item.itemId
-                ]
-            }),
-        ]
-    }
+//    static func transformPropositionDict(dict: [Surface: [MessagingProposition]]) -> [String: [Any]]
+//    {
+//        let bundleID = "mobileapp://" + Bundle.main.bundleIdentifier! + "/"
+//        return dict.reduce(into: [:]) { result, element in
+//            result[element.key.uri.replacingOccurrences(of: bundleID, with: "")] = element.value
+//                .map({ self.transformToProposition(proposition: $0) })
+//        }
+//    }
+//
+//    static func transformToProposition(proposition: MessagingProposition) -> [String: Any?] {
+//        return [
+//            "scope": proposition.scope,
+//            "uniqueId": proposition.uniqueId,
+//            "items": proposition.items.map({ item in
+//                [
+//                    "htmlContent": item.htmlContent,
+//                    "jsonContentArray": item.jsonContentArray,
+//                    "jsonContent": item.jsonContentDictionary,
+//                    "itemData": item.itemData as Any?,
+//                    "schema": item.schema,
+//                    "itemId": item.itemId
+//                ]
+//            }),
+//        ]
+//    }
 }
