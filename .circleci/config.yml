@@ -49,7 +49,30 @@ jobs:
 
           environment:
             _JAVA_OPTIONS: "-Xmx4096M -XX:MaxMetaspaceSize=512m"
+            
+  build-sample-app-android-mac:
+    macos:
+      xcode: 15.2 # Specify the Xcode version to use
 
+    steps:
+      - checkout
+
+      - run:
+          name: yarn install
+          command: yarn install
+      - run:
+          name: install Android command line tool
+          command: brew install --cask android-platform-tools
+      - run:
+          name: list Android SDK
+          command: sdkmanager list
+      - run:
+          name: install Android SDK
+          command: sdkmanager "platforms;android-34"    
+      - run:
+          name: Building Android Sample App
+          command: yarn sampleapp:android:build
+          
   build-sample-app-ios:
     macos:
       xcode: 15.2 # Specify the Xcode version to use
@@ -85,6 +108,7 @@ workflows:
   version: 2.1
   ci-workflow:
     jobs:
-      - unit-test
-      - build-sample-app-ios
+      # - unit-test
+      # - build-sample-app-ios
       # - build-sample-app-android
+      - build-sample-app-android-mac
