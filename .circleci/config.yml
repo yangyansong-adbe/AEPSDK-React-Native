@@ -68,7 +68,7 @@ jobs:
           command: sdkmanager --list
       - run:
           name: install Android SDK
-          command: sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" "emulator" 
+          command: yes | sudo sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" "emulator" 
       - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
