@@ -56,10 +56,7 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: yarn install
-          command: yarn install
+      
       - run:
           name: install Android command line tool
           command: brew install --cask android-commandlinetools
@@ -68,10 +65,13 @@ jobs:
           command: sdkmanager --list
       - run: 
           name: accept license
-          command: yes | sudo sdkmanager --licenses
+          command: yes | sdkmanager --licenses
       - run:
           name: install Android SDK
           command: sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" "emulator" 
+      - run:
+          name: yarn install
+          command: yarn install
       - run:
           name: Building Android Sample App
           command: yarn sampleapp:android:build
